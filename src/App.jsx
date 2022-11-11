@@ -10,10 +10,7 @@ export function App() {
         path="/"
         element={
         <Button
-          text="Entrar"
-          bgColor="bg-transparent"
-          textColor="text-dark-blue"
-          borderColor="border-dark-blue"
+          styles="bg-primary text-white border-primary"
         >
           Hello
         </Button>
