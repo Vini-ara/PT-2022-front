@@ -1,19 +1,20 @@
-import React from "react"
-import {Routes, Route } from 'react-router-dom'
-import Formulario from "./components/formulario"
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./pages/home";
+import { AuthProvider } from "./context/authContext";
+
+
 
 export function App() {
   return (
-    <Routes>
-    <Route
-      index
-      path="/"
-      element={
-        
-        <div className="container mx-auto object-contain object-center mt-20 w-96 h-144 "> <Formulario /> </div>  
-    }
-    />
-  </Routes>
-   
+    <AuthProvider>
+      <Routes>
+        <Route
+          index
+          path="/"
+          element={<Home/>} 
+        }
+        />
+      </Routes>
+    </AuthProvider>
   )
 }
