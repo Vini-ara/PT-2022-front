@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Button from "./components/button";
+import { Home } from "./pages/home";
 import { AuthProvider } from "./context/authContext";
+
 
 
 export function App() {
@@ -10,12 +12,7 @@ export function App() {
         <Route
           index
           path="/"
-          element={
-          <Button
-            styles="bg-primary text-white border-primary"
-          >
-            Hello
-          </Button>
+          element={<Home/>} 
         }
         />
       </Routes>
