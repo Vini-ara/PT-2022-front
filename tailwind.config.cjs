@@ -2,7 +2,7 @@
 module.exports = {
   content: ['./src/**/*.{html,js,jsx,tsx}'],
   theme: {
-    extend: {
+     extend: {
       colors: {
         'primary': "#577590",
         'save':'#219653',
@@ -10,6 +10,7 @@ module.exports = {
         'warning': '#FFD747',
         'information': '#56CCF2',
         'disabled': '#A4ABB2',
+        'facebook' :'#08558B'
         'dark-blue': '#002F67',
         'transparent-bg': 'rgba(87, 117, 144, 0.5)',
         'w-bg': 'rgba(237, 237, 233, 1)',
