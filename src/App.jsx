@@ -1,21 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 import Button from "./components/button";
+import { Home } from "./pages/home";
 
 
 export function App() {
   return (
     <Routes>
-      <Route
+        <Route 
         index
         path="/"
         element={
-        <Button
-          styles="bg-primary text-white border-primary"
-        >
-          Hello
-        </Button>
-      }
-      />
+          <Home/>    
+      }/>
+   
     </Routes>
-  )
+  );
 }
