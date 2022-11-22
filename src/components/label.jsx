@@ -1,11 +1,10 @@
+  
 
-export default function Label(){
+export default function Label({children, styles, ...props}){
     return(
-     <div id = "label container"> 
-     <form action="">
-     <label className=" ml-4 text-xs "> </label>
-     <input className=" font-sans text-xs border-inherit border-2 border-solid"   type="text" name="name" id="name" placeholder=" Digite sua resposta " /> 
-     </form>
+     <div className="my-2 flex flex-col"> 
+     <label className="text-xs my-1"> {children} </label>
+     <input className= {`${styles} w-60 font-sans text-xs ` }  type="text"  name="name"  placeholder=" Digite sua resposta " {...props} /> 
      </div>
     )
    }
