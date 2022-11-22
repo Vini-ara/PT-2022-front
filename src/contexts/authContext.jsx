@@ -1,27 +1,25 @@
-import { createContext, useContext } from 'react';
+import { createContext, useState, useContext } from 'react';
 
-const AuthContext = createContext(null);
+const AuthContext = createContext();
 
-export function AuthProvider({children}) {
+export function AuthProvider({ children }) {
   const [user, setUser] = useState();
 
-  async function singIn(credential) {
-    //await backend response 
+  // eslint-disable-next-line no-unused-vars
+  async function signIn(credential, callback) {
+    //await backend response
     // set user to backend response
   }
 
+  // eslint-disable-next-line no-unused-vars
   async function signOut(credential) {
     //await backend response
     setUser({});
   }
 
-  <AuthContext.Provider value={{
-    user,
-    signIn,
-    signOut
-  }}>
-    {children}
-  </AuthContext.Provider>
+  const value = { user, signIn, signOut };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 export function useAuthContext() {

@@ -1,7 +1,6 @@
-import { Route, Routes } from "react-router-dom";
-import Button from "./components/button";
-import { AuthProvider } from "./context/authContext";
-
+import { Link, Route, Routes } from 'react-router-dom';
+import { LoginButton } from './components/LoginButton';
+import { AuthProvider } from './contexts/authContext';
 
 export function App() {
   return (
@@ -11,14 +10,13 @@ export function App() {
           index
           path="/"
           element={
-          <Button
-            styles="bg-primary text-white border-primary"
-          >
-            Hello
-          </Button>
-        }
+            <Link to="home">
+              <LoginButton />
+            </Link>
+          }
         />
+        <Route path="home" element={<h1>LAR DOCE LAR!</h1>} />
       </Routes>
     </AuthProvider>
-  )
+  );
 }
