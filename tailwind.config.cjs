@@ -2,6 +2,9 @@
 module.exports = {
   content: ['./src/**/*.{html,js,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      'inter': ['Inter', 'sans-serif']
+    },
      extend: {
       colors: {
         'primary': "#577590",
@@ -10,8 +13,9 @@ module.exports = {
         'warning': '#FFD747',
         'information': '#56CCF2',
         'disabled': '#A4ABB2',
-        'facebook' :'#08558B'
+        'facebook' :'#08558B',
         'dark-blue': '#002F67',
+        'blue-form':'#79A4CB',
         'transparent-bg': 'rgba(87, 117, 144, 0.5)',
         'w-bg': 'rgba(237, 237, 233, 1)',
         'text-green': '#73C04A',
