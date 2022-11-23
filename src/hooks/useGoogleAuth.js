@@ -1,20 +1,21 @@
-import { useEffect } from "react";
+// lembrar de desinstalar jwt-decode
+import { useEffect } from 'react';
 
-export function useGoogleAuth({callback}) {
+export function useGoogleAuth(ref, callback = () => {}) {
   useEffect(() => {
-
     function handleCallbackResponse(credentials) {
-      callback(credentials)
+      callback(credentials);
     }
-    
-    google.acounts.id.initialize({
-      client_id: import.meta.env.CLIENT_ID,
-      callback: handleCallbackResponse
-    })
+
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: import.meta.env.VITE_CLIENT_ID,
+      callback: handleCallbackResponse,
+    });
 
     google.accounts.id.renderButton(ref.current, {
       type: 'standard',
-      theme: 'filled-blue'
-    })
-  })
+      theme: 'filled-blue',
+    });
+  }, [ref.current, callback]);
 }
