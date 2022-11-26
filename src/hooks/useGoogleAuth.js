@@ -1,10 +1,14 @@
 // lembrar de desinstalar jwt-decode
 import { useEffect } from 'react';
+import { api } from '../api/api';
 
 export function useGoogleAuth(ref, callback = () => {}) {
   useEffect(() => {
-    function handleCallbackResponse(credentials) {
-      callback(credentials);
+    async function handleCallbackResponse({ credential }) {
+      const user = await api.post('/auth/google', {
+        token: credential
+      })
+      callback(user);
     }
 
     /* global google */
