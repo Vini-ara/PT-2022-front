@@ -1,6 +1,9 @@
 import Button from './Buttons/Button';
 import { Input } from './Inputs';
 import { listaPerguntas } from './perguntas';
+import Modalcomponente from './Modal';
+import { openModal } from './Modal';
+
 
 export default function Formulario() {
   return (
@@ -14,12 +17,17 @@ export default function Formulario() {
             {pergunta.pergunta}
           </Input>
         ))}
+
         <div className="flex justify-end">
-          <Button styles="h-1/2 w-32 bg-primary text-white text-[1.3rem]">
-            Salvar
-          </Button>
+        <Modalcomponente>
+        <Button  styles="h-1/2 w-32 bg-primary text-white text-[1.3rem]"
+            >  Salvar    
+         </Button> 
+        </Modalcomponente>  
         </div>
+               
       </form>
     </div>
   );
 }
+
