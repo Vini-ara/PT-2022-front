@@ -5,10 +5,11 @@ import { api } from '../api/api';
 export function useGoogleAuth(ref, callback = () => {}) {
   useEffect(() => {
     async function handleCallbackResponse({ credential }) {
-      const user = await api.post('/auth/google', {
+      console.log(credential)
+      const { data } = await api.post('/auth/google', {
         token: credential
       })
-      callback(user);
+      callback(data);
     }
 
     /* global google */

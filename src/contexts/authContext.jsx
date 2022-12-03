@@ -1,25 +1,57 @@
 import { createContext, useState, useContext } from 'react';
+import { api } from '../api/api';
+import { store } from '../api/localStorage';
 
 const AuthContext = createContext();
 
+const { saveToken, saveExpiration, saveUserId, clear } = store;
+
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
 
-  // eslint-disable-next-line no-unused-vars
-  async function signIn(credential, callback) {
-    //await backend response
-    // set user to backend response
+  const signIn = async (data) =>  {
+    saveToken(data.accessToken);
+    saveExpiration(data.expiresIn);
+    saveUserId(data.user.id);
+    getUserData(store.getUserId());
   }
 
-  // eslint-disable-next-line no-unused-vars
-  async function signOut(credential) {
-    //await backend response
-    setUser({});
+  const getUserData = async (userId) => {
+    try {
+      const user = await api.get(`users/${userId}`)
+
+      setUser(user.data);
+    } catch(err) {
+      console.log(err)
+    }
   }
 
-  const value = { user, signIn, signOut };
+  const signOut = () => {
+    try {
+      api.get('/logout', {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }  
+      })
+      
+      clear();
+    } catch(err) {
+      console.log(err)
+    }
+  }
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  const value = { 
+    user, 
+    signIn, 
+    signOut,
+    getUserData
+  };
+
+  return <AuthContext.Provider value={
+    value
+  }>
+    {children}
+  </AuthContext.Provider>;
 }
 
 export function useAuthContext() {
