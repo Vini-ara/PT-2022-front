@@ -5,7 +5,7 @@ import focatia from '../assets/focatia.png';
 import logocjr from '../assets/logocjr.png';
 import { LoginButton } from '../components/Buttons/LoginButton';
 
-export function Home() {
+export default function Home() {
   return (
     <div className="max-h-full flex w-[100vw] overflow-hidden h-[100vh]">
       <div className="w-[38%] relative h-full  bg-transparent-bg">

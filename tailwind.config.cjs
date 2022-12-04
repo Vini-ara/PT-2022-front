@@ -13,6 +13,7 @@ module.exports = {
         'warning': '#FFD747',
         'information': '#56CCF2',
         'disabled': '#A4ABB2',
+        'dark-gray': '#888888',
         'facebook' :'#08558B',
         'dark-blue': '#002F67',
         'blue-form':'#79A4CB',
