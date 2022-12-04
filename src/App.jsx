@@ -1,13 +1,10 @@
 import Home from './pages/Home';
-import Formulario from './components/Form';
-import { Route, Routes } from 'react-router-dom';
-import { AuthProvider } from './contexts/authContext';
-import Button from './components/Buttons/Button';
 import Tabela from "./components/table"
+import Formulario from './components/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './components/header';
-import TabelaDois from './components/table2';
+import { Route, Routes } from 'react-router-dom';
 import { AuthGuard } from './components/AuthGuard';
+import { AuthProvider } from './contexts/authContext';
 
 export function App() {
   return (
