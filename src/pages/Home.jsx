@@ -1,11 +1,12 @@
-import '../components/cjr.css';
+
+
 import banner from '../assets/banner.png';
 import focatia from '../assets/focatia.png';
 import logocjr from '../assets/logocjr.png';
 import { LoginButton } from '../components/Buttons/LoginButton';
 import Checkboxes from '../components/checkbox';
 
-export function Home() {
+export default function Home() {
   return (
     <div className="max-h-full flex w-[100vw] overflow-hidden h-[100vh]">
       <div className="w-[38%] relative h-full  bg-transparent-bg">
@@ -16,6 +17,11 @@ export function Home() {
           <h1 className="text-text-green text-color text-center translate-y-[130px]">J</h1>
 
           <h1 className="text-white text-center translate-y-[145px]">R</h1>
+          <img
+            className="h-[10%] w-[10%] translate-x-[20vw] translate-y-[28vh]"
+            src={logocjr}
+            alt=""
+          />
         </div>
         <img className="h-[20%] mx-[90%] -translate-x-[100%] my-[140px]" src={logocjr} alt="" />
         <img
@@ -33,7 +39,6 @@ export function Home() {
             alt="banner"
           />
         </div>
-        <LoginButton />
       </div>
     </div>
   );
