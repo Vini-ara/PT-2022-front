@@ -2,9 +2,16 @@ import pdi from '../assets/pdi.png';
 import { Link } from 'react-router-dom';
 import Button from '../components/Buttons/Button';
 import { useAuthContext } from '../contexts/authContext';
+import { useEffect } from 'react';
+import { store } from '../services/api/localStorage';
 
 function Header() {
-  const { user } = useAuthContext();
+  const { user, getUserData } = useAuthContext();
+
+  useEffect(() => {
+    getUserData(store.getUserId()); 
+  }, [])
+
   function handleLogOut() {}
 
   return (
