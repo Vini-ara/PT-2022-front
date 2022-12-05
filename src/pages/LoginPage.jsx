@@ -10,15 +10,13 @@ export default function LoginPage() {
 <div className="max-h-full flex w-[100vw] overflow-hidden h-[100vh]">
       <div className="w-[38%] relative h-full  bg-transparent-bg">
         <div className="font-inter z-100 text-8xl italic font-bold flex flex-col">
-          <h1 className="text-dark-blue text-center translate-y-[115px]">C</h1>
-          <h1 className="text-text-green text-color text-center translate-y-[130px]">
-            J
-          </h1>
-          <h1 className="text-white text-center translate-y-[145px]">R</h1>
+          <h1 className="text-dark-blue text-center translate-y-[115px] text-[100px]">C</h1>
+          <h1 className="text-text-green text-color text-center translate-y-[130px] text-[100px]">J</h1>
+          <h1 className="text-white text-center translate-y-[145px] text-[100px] mb-16">R</h1>
           <img
             className="h-[10%] w-[10%] translate-x-[20vw] translate-y-[28vh]"
             src={logocjr}
-            alt=""
+            alt="logo"
           />
         </div>
         <img
