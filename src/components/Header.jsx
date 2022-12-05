@@ -4,15 +4,24 @@ import Button from '../components/Buttons/Button';
 import { useAuthContext } from '../contexts/authContext';
 import { useEffect } from 'react';
 import { store } from '../services/api/localStorage';
+import { api } from '../services/api/api';
 
 function Header() {
   const { user, getUserData } = useAuthContext();
 
+  const { getToken, isExpired, getUserId, clear } = store;
+
   useEffect(() => {
-    getUserData(store.getUserId()); 
+    getUserData(getUserId()); 
   }, [])
 
-  function handleLogOut() {}
+  function handleLogOut() {
+    if(getToken() && !isExpired()) {
+      api.defaults.headers.common['Authorization'] = 'Bearer ' + getToken();
+    }
+    api.get('/auth/logout');
+    clear();
+  }
 
   return (
     <header className="p-3 text-white font-inter font-bold flex justify-between bg-blue-header mb-5 items-center">
