@@ -17,10 +17,10 @@ function TabelaDois({ data }) {
                   Data de modificação
                 </th>
                 <th className="px-5 py-3 text-left text-xs  text-grady-500 tracking-wider ">
-                  Admin
+                  Arquivado
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-grady-500 tracking-wider ">
-                  Arquivado
+                  Editar
                 </th>
               </tr>
             </thead>
