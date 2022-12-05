@@ -9,22 +9,22 @@ export function AuthGuard({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(location.pathname != '/') {
+    if(location.pathname != '/login') {
       try {
         if(getToken() != null && isExpired()) {
           refresh();
         }
 
         if(getToken() == null) {
-          navigate('/');
+          navigate('/login');
         }
       } catch (e) {
-        navigate('/')
+        navigate('/login')
       }
     } else {
       try {
         if(getToken() != null  && !isExpired()) {
-          navigate("/form")
+          navigate("/")
         }
 
         if(getToken() != null && isExpired()) {

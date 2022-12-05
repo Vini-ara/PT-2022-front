@@ -1,13 +1,14 @@
-import Checkboxes from './checkbox';
+import EditIcon from '@mui/icons-material/Edit';
+import Checkboxes from './Checkbox';
 import TableRow from '@mui/material/TableRow';
 
 const users = [
   { name: 'user1', date: '2022-11-26T00:23:16.409Z' },
   { name: 'user2', date: '2019-01-10T00:23:16.409Z' },
-  { name: 'user3', date: 99 },
+  { name: 'cassio', date: 99 },
 ];
 
-function Tabela() {
+function TabelaDois() {
   return (
     <body className="p-10">
       <div className="bg-white shadow rounded-md">
@@ -41,8 +42,10 @@ function Tabela() {
                   <td className="px-5 py-1 ">
                     <Checkboxes />
                   </td>
-                  <td className="px-8 py-1">
-                    <Checkboxes />
+                  <td className="px-4 py-1">
+                    <button>
+                      <EditIcon />
+                    </button>
                   </td>
                 </TableRow>
               ))}
@@ -54,4 +57,4 @@ function Tabela() {
   );
 }
 
-export default Tabela;
+export default TabelaDois;

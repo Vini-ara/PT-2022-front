@@ -16,7 +16,7 @@ export default function Formulario() {
     setIsOpen(false);
   }
   return (
-    <div className="border-[1rem] border-blue-form solid overflow-hidden w-1/2 p-0 rounded-xl">
+    <div className="border-[1rem] border-blue-form solid overflow-hidden w-1/2 p-0 rounded-xl m-auto">
       <div className="flex justify-center text-gray-50 text-[2rem] bg-blue-form w-auto p-1">
         Meu plano de desenvolvimento individual
       </div>
@@ -29,7 +29,7 @@ export default function Formulario() {
         <div className="flex justify-end">
           <Button
             onClick={openModal}
-            styles="h-1/2 w-32 bg-primary text-white text-[1.3rem]"
+            styles="h-1/2 w-32 bg-blue-header text-white text-[1.3rem]"
           >
             Salvar
           </Button>
@@ -39,7 +39,7 @@ export default function Formulario() {
         <h1>OLA!</h1>
         <Button
           onClick={closeModal}
-          styles="h-1/2 w-32 bg-primary text-white text-[1.3rem]"
+          styles="h-1/2 w-32 bg-blue-header text-white text-[1.3rem]"
         >
           Fechar
         </Button>

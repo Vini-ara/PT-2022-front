@@ -7,7 +7,7 @@ module.exports = {
     },
      extend: {
       colors: {
-        'primary': "#577590",
+        'blue-header': "#577590",
         'save':'#219653',
         'delete': '#DD3030',
         'warning': '#FFD747',

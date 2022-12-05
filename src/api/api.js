@@ -2,7 +2,7 @@ import axios from "axios";
 import { store } from "./localStorage";
 
 export const api = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://pdiapi.up.railway.app/",
   withCredentials: true,
   credentials: true
 })

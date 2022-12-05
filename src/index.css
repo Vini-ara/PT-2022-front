@@ -3,6 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+a:-webkit-any-link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+a:-webkit-any-link:hover {
+  color: white;
+  filter: brightness(0.8);
+}
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   box-sizing: border-box;
