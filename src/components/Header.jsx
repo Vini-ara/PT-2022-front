@@ -36,11 +36,11 @@ function Header() {
       </div>
       <div className="flex items-center">
         <Link className="flex items-center" to="/">
-          <span className="mr-4">{user?.name}Vinicius Araujo</span>
+          <span className="mr-4">{user?.name}</span>
         </Link>
         <img
           className="w-12 rounded-full mr-3"
-          src="https://lh3.googleusercontent.com/a/ALm5wu1_OiLs6Fy5lbI803uUFRWuYP2hC6Cl7RpQbcSq=s96-c" alt="user icon"
+          src={user?.picture} alt="user icon"
         />
         <Link to="login">
           <Button
