@@ -33,6 +33,7 @@ api.interceptors.response.use(
               return window.location.pathname = "/login";
             }
           } else {
+            console.log("deu ruim aqui msm patrao")
             store.clear();
             if(window.location.pathname != "/login") {
               return window.location.pathname = "/login";

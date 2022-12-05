@@ -9,6 +9,12 @@ export function AuthGuard({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if(getToken()) {
+      api.defaults.headers.common['Authorization'] = 'Bearer ' + getToken();
+    }
+  }, [])
+
+  useEffect(() => {
     if (location.pathname != '/login') {
       try {
         if (getToken() != null && isExpired()) {
