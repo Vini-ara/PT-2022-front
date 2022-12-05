@@ -2,9 +2,8 @@ import axios from "axios";
 import { store } from "./localStorage";
 
 export const api = axios.create({
-  baseURL: "https://pdiapi.up.railway.app/",
-  withCredentials: true,
-  credentials: true
+  baseURL: "https://pdiapi.up.railway.app",
+  withCredentials: true
 })
 
 api.interceptors.response.use(
@@ -34,7 +33,8 @@ api.interceptors.response.use(
             }
           } else {
             console.log("deu ruim aqui msm patrao")
-            store.clear();
+            console.log(error)
+            // store.clear();
             if(window.location.pathname != "/login") {
               return window.location.pathname = "/login";
             }
