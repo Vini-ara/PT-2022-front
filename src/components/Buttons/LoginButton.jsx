@@ -11,7 +11,7 @@ export function LoginButton() {
   useGoogleAuth(ref, (data) => {
     signIn(data)
 
-   navigate("/form") 
+   navigate("/") 
   });
 
   return <div ref={ref} />;
