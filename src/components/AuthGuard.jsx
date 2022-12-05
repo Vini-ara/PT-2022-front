@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { api } from '../services/api/api';
 import { store } from '../services/api/localStorage';
 
 const { getToken, isExpired, refresh } = store;
