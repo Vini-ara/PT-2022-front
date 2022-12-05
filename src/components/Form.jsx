@@ -30,7 +30,7 @@ export default function Formulario() {
       <form className="p-8">
         {pdi?.map((pergunta) => (
           <Input styles="border-2 border-solid" key={pergunta.id}>
-            {pergunta.description}
+            {pergunta.title}
           </Input>
         ))}
         <div className="flex justify-end">

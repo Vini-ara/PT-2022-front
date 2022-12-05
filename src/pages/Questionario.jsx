@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import TableEdit from '../components/TableEdit';
 
 export default function Questionario() {
-  const [pdi, setPdi] = useState();
+  const [pdi, setPdi] = useState([]);
   useEffect(() => {
     api.get('/question').then((response) => {
       const { data } = response;

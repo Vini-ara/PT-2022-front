@@ -25,7 +25,7 @@ function TabelaDois({ data }) {
               </tr>
             </thead>
             <tbody>
-              {data.map((pergunta) => (
+              {data?.map((pergunta) => (
                 <TableRow key={pergunta.id}>
                   <td className="px-6 py-1 text-left text-xs  text-grady-500 tracking-wider">
                     {pergunta.title}
