@@ -40,7 +40,6 @@ api.interceptors.response.use(
             return Promise.reject(error)
           }
         default: 
-          store.clear();
           return Promise.reject(error);
       }
     } else if(error.request) {
