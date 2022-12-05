@@ -11,7 +11,7 @@ import Questionario from './pages/Questionario';
 export function App() {
   return (
     <AuthProvider>
-      {/* <AuthGuard> */}
+      <AuthGuard>
       <Routes>
       <Route path="login" element={<LoginPage />} />
         <Route path="/" element={<Layout />}>
@@ -20,7 +20,7 @@ export function App() {
           <Route path="questionario" element={<Questionario />} />
         </Route>
       </Routes>
-      {/* </AuthGuard> */}
+      </AuthGuard>
     </AuthProvider>
   );
 }
