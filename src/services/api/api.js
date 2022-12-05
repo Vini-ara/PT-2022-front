@@ -30,12 +30,12 @@ api.interceptors.response.use(
 
               return await api({method: config.method, url: config.url, data: config.data})
             } catch(e) {
-              return window.location.pathname = "/";
+              return window.location.pathname = "/login";
             }
           } else {
             store.clear();
-            if(window.location.pathname != "/") {
-              return window.location.pathname = "/";
+            if(window.location.pathname != "/login") {
+              return window.location.pathname = "/login";
             }
             return Promise.reject(error)
           }

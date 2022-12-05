@@ -1,11 +1,18 @@
 import { Input } from './Inputs';
-import { useState } from 'react';
+import { api } from '../services/api/api';
+import { useEffect, useState } from 'react';
 import Button from './Buttons/Button';
 import ModalComponente from './Modal';
-import { listaPerguntas } from './perguntas';
 
 export default function Formulario() {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [pdi, setPdi] = useState([]);
+  useEffect(() => {
+    api.get('/question').then((response) => {
+      const { data } = response;
+      setPdi(data);
+    });
+  }, []);
 
   function openModal(e) {
     e.preventDefault();
@@ -21,9 +28,9 @@ export default function Formulario() {
         Meu plano de desenvolvimento individual
       </div>
       <form className="p-8">
-        {listaPerguntas.map((pergunta, index) => (
-          <Input styles="border-2 border-solid" key={index}>
-            {pergunta.pergunta}
+        {pdi?.map((pergunta) => (
+          <Input styles="border-2 border-solid" key={pergunta.id}>
+            {pergunta.description}
           </Input>
         ))}
         <div className="flex justify-end">

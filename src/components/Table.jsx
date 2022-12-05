@@ -1,13 +1,7 @@
 import Checkboxes from './Checkbox';
 import TableRow from '@mui/material/TableRow';
 
-const users = [
-  { name: 'user1', date: '2022-11-26T00:23:16.409Z' },
-  { name: 'user2', date: '2019-01-10T00:23:16.409Z' },
-  { name: 'user3', date: 99 },
-];
-
-function Tabela() {
+function Tabela({ data }) {
   return (
     <body className="p-10">
       <div className="bg-white shadow rounded-md">
@@ -30,19 +24,19 @@ function Tabela() {
               </tr>
             </thead>
             <tbody>
-              {users.map((user, index) => (
-                <TableRow key={index}>
+              {data.map((user) => (
+                <TableRow key={user.id}>
                   <td className="px-6 py-1 text-left text-xs  text-grady-500 tracking-wider">
                     {user.name}
                   </td>
                   <td className="pl-10 py-1 text-center text-xs  text-grady-500 tracking-wider">
-                    {new Date(user.date).toLocaleDateString('pt-BR')}
+                    {new Date(user.pdi_updated_at).toLocaleDateString('pt-BR')}
                   </td>
                   <td className="px-5 py-1 ">
-                    <Checkboxes />
+                    <Checkboxes checked={user.is_admin} />
                   </td>
                   <td className="px-8 py-1">
-                    <Checkboxes />
+                    <Checkboxes checked={user.archived} />
                   </td>
                 </TableRow>
               ))}

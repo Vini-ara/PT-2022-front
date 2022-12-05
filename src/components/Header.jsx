@@ -1,8 +1,10 @@
 import pdi from '../assets/pdi.png';
 import { Link } from 'react-router-dom';
 import Button from '../components/Buttons/Button';
+import { useAuthContext } from '../contexts/authContext';
 
 function Header() {
+  const { user } = useAuthContext();
   function handleLogOut() {}
 
   return (
@@ -15,11 +17,10 @@ function Header() {
       <div className="flex items-center">
         <img
           className="w-1/5 rounded-full mr-3"
-          src="https://lh3.googleusercontent.com/a/ALm5wu1_OiLs6Fy5lbI803uUFRWuYP2hC6Cl7RpQbcSq=s96-c"
-          alt="user-icon"
+          src={user.picture} alt="user icon"
         />
         <Link className="flex items-center" to="/">
-          <span className="mr-4">Jhon Doe</span>
+          <span className="mr-4">{user.name}</span>
         </Link>
         <Link to="login">
           <Button

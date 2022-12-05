@@ -2,13 +2,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import Checkboxes from './Checkbox';
 import TableRow from '@mui/material/TableRow';
 
-const users = [
-  { name: 'user1', date: '2022-11-26T00:23:16.409Z' },
-  { name: 'user2', date: '2019-01-10T00:23:16.409Z' },
-  { name: 'cassio', date: 99 },
-];
-
-function TabelaDois() {
+function TabelaDois({ data }) {
   return (
     <body className="p-10">
       <div className="bg-white shadow rounded-md">
@@ -31,16 +25,16 @@ function TabelaDois() {
               </tr>
             </thead>
             <tbody>
-              {users.map((user, index) => (
-                <TableRow key={index}>
+              {data.map((pergunta) => (
+                <TableRow key={pergunta.id}>
                   <td className="px-6 py-1 text-left text-xs  text-grady-500 tracking-wider">
-                    {user.name}
+                    {pergunta.title}
                   </td>
                   <td className="pl-10 py-1 text-center text-xs  text-grady-500 tracking-wider">
-                    {new Date(user.date).toLocaleDateString('pt-BR')}
+                    {new Date(pergunta.updatedAt).toLocaleDateString('pt-BR')}
                   </td>
                   <td className="px-5 py-1 ">
-                    <Checkboxes />
+                    <Checkboxes checked={pergunta.archived} />
                   </td>
                   <td className="px-4 py-1">
                     <button>

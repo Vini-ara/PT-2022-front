@@ -1,6 +1,6 @@
 import { createContext, useState, useContext } from 'react';
-import { api } from '../api/api';
-import { store } from '../api/localStorage';
+import { api } from '../services/api/api';
+import { store } from '../services/api/localStorage';
 
 const AuthContext = createContext();
 
@@ -9,49 +9,45 @@ const { saveToken, saveExpiration, saveUserId, clear } = store;
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  const signIn = async (data) =>  {
+  const signIn = async (data) => {
     saveToken(data.accessToken);
     saveExpiration(data.expiresIn);
     saveUserId(data.user.id);
     getUserData(store.getUserId());
-  }
+  };
 
   const getUserData = async (userId) => {
     try {
-      const user = await api.get(`users/${userId}`)
+      const user = await api.get(`users/${userId}`);
 
       setUser(user.data);
-    } catch(err) {
-      console.log(err)
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
   const signOut = () => {
     try {
       api.get('/logout', {
         headers: {
-          Authorization: `Bearer ${accessToken}`
-        }  
-      })
-      
-      clear();
-    } catch(err) {
-      console.log(err)
-    }
-  }
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
 
-  const value = { 
-    user, 
-    signIn, 
-    signOut,
-    getUserData
+      clear();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  return <AuthContext.Provider value={
-    value
-  }>
-    {children}
-  </AuthContext.Provider>;
+  const value = {
+    user,
+    signIn,
+    signOut,
+    getUserData,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 export function useAuthContext() {
