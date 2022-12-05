@@ -4,7 +4,7 @@ import { store } from '../services/api/localStorage';
 
 const AuthContext = createContext();
 
-const { saveToken, saveExpiration, saveUserId, clear } = store;
+const { saveToken, saveExpiration, saveUserId, clear, getToken, isExpired } = store;
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState({});
@@ -18,6 +18,9 @@ export function AuthProvider({ children }) {
 
   const getUserData = async (userId) => {
     try {
+      if(getToken() && !isExpired()) {
+        api.defaults.headers.common['Authorization'] = 'Bearer ' + getToken();
+      }
       const user = await api.get(`users/${userId}`);
 
       setUser(user.data);
